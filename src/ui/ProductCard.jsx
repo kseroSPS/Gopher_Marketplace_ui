@@ -5,7 +5,7 @@ const ProductCard = ({ product, currentUser }) => {
   console.log('product.user:', product.user);
   console.log('product.user_name:', product.user_name);
   console.log("product:", product);
-  console.log("user:", localStorage.getItem("User"));
+  console.log("user:", sessionStorage.getItem("User"));
   const [showInfo, setShowInfo] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
