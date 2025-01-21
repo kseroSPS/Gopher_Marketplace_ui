@@ -7,7 +7,7 @@ const useCurrentUser = () => {
 
     useEffect(() => {
         const fetchCurrentUser = async () => {
-            const authToken = JSON.parse(sessionStorage.getItem('authToken')); // Get the token from storage
+            const authToken = JSON.parse(sessionStorage.getItem('authToken'));
 
             if (!authToken) {
                 setError('No auth token found. Please log in.');
