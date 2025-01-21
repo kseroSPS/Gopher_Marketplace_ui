@@ -44,7 +44,7 @@ const AddProduct = () => {
       description: newProduct.description,
       course: newProduct.course,
       professor: newProduct.professor,
-      category: newProduct.itemCategory,
+      category: newProduct.category,
       user: newProduct.user,
       price:newProduct.itemPrice,
     },{
@@ -54,7 +54,7 @@ const AddProduct = () => {
          
       }) // Send new product to local API
       .then((response) => {
-        console.log('Product added:', response.data);
+        console.log('Product added:', response.data, category);
         navigate('/home', { state: { newProduct: response.data } });
       })
       .catch((error) => {
@@ -143,13 +143,13 @@ const AddProduct = () => {
                 }}
               >
                 <option value="">Select a category</option>
-                <option value="SCHOOL_SUPPLIES">SCHOOL SUPPLIES</option>
-                <option value="SPORTS">SPORTS</option>
-                <option value="ELECTRONICS">ELECTRONICS</option>
-                <option value="FURNITURE">FURNITURE</option>
-                <option value="CLOTHING">CLOTHING</option>
-                <option value="BOOKS">BOOKS</option>
-                <option value="OTHER">OTHER</option>
+                <option value='SCHOOL_SUPPLIES'>SCHOOL SUPPLIES</option>
+                <option value='SPORTS'>SPORTS</option>
+                <option value='ELECTRONICS'>ELECTRONICS</option>
+                <option value='FURNITURE'>FURNITURE</option>
+                <option value='CLOTHING'>CLOTHING</option>
+                <option value='BOOKS'>BOOKS</option>
+                <option value='OTHER'>OTHER</option>
               </select>
             </div>
             {/* Description */}
