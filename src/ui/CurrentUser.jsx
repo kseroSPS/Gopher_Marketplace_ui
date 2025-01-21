@@ -8,6 +8,7 @@ const useCurrentUser = () => {
     useEffect(() => {
         const fetchCurrentUser = async () => {
             const authToken = JSON.parse(sessionStorage.getItem('authToken'));
+            const authToken = JSON.parse(sessionStorage.getItem('authToken')); // Get the token from storage
 
             if (!authToken) {
                 setError('No auth token found. Please log in.');
@@ -39,7 +40,7 @@ const useCurrentUser = () => {
 
         fetchCurrentUser();
     }, []); // Run once when the component mounts
-    currentUser = JSON.parse(sessionStorage.getItem("User"));
+    currentUser = sessionStorage.getItem("User");
     return { currentUser, loading, error };
 };
 

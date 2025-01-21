@@ -168,14 +168,14 @@ def auth_receiver(request):
 
         # Store user data in session
         request.session['user_data'] = {
-            'auth_token': auth_token.key,
             "user_name":username,
             'email': email,
             'first_name': first_name,
             'last_name': last_name,
             'picture': user_data.get('picture', ''),
+            'auth_token': auth_token.key
         }
-        print(request.session['user_data'])
+
         logger.info(f"User session created for: {email}")
         # return redirect('market/')
         return JsonResponse({"message": "Login successful", "auth_token": auth_token.key, "user_data":  request.session['user_data']})

@@ -1,59 +1,34 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import axios from 'axios';
-import ProductCard from './ProductCard';
-// import useCurrentUser from './CurrentUser';
+import 'react';
+
+
+
+
 const BooksPage = () => {
-  const [products, setProducts] = useState([]);
-  const location = useLocation();
-  const currentUser = JSON.parse(sessionStorage.getItem("User"));
-  const token = currentUser.auth_token;
-  console.log("Hello",token);
-  
+    // const items = ({ img, itemName, price, info }) => {
+    //     return {
+    //         img,
+    //         itemName,
+    //         price,
+    //         info
+    //     };
+    // };
+    // const cards = ({product})=>{
+    //     const card = document.createElement('div');
+    //     card.classList.add('product-card');
 
-  // Fetch products from API
-  useEffect(() => {
-    if (token) {
-      axios.get('http://localhost:8000/api/products/', {
-        headers: {
-          'Authorization': `Token ${token}`,
-        },
-      })
-        .then((response) => {
-          const books = response.data.filter((product) => product.category === "BOOKS");
-          setProducts(books);
-        })
-        .catch((error) => {
-          console.error('Error fetching products:', error);
-        });
-    }
-  }, [token]);
-  
-  
-
-  // Add the new product from the navigation state
-  useEffect(() => {
-    if (location.state?.newProduct) {
-      setProducts((prevProducts) => [...prevProducts, location.state.newProduct]);
-    }
-  }, [location.state]);
-
+    //     card.innerHTML = `
+    //     <div style = "border:1px solid #ccc; padding: 15px; text-align: center; width: 200px; border-radius: 8px; background-color: #f9f9f9;"">
+    //     <img src = "${product.img}" alt = "${product.itemName}" style="width: 100%; height: auto; border-radius: 4px;">
+    //     <h3>${product.itemNam}</h3>
+    //     <p>${product.price}</p>
+    //     <button onclick="window.location.href='${product.info}'">Info</button>
+    //     </div>`
+        
+    // }
   return (
-    <div style={{ padding: '20px' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>All Products</h1>
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '20px',
-          justifyContent: 'center',
-        }}
-      >
-        {products.map((product, index) => (
-          <ProductCard key={index} product={product}  currentUser = {currentUser}/>
-        ))}
-      </div>
-    </div>
+   <main >
+
+   </main>
   );
 };
 
