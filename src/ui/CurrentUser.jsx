@@ -39,7 +39,7 @@ const useCurrentUser = () => {
 
         fetchCurrentUser();
     }, []); // Run once when the component mounts
-    currentUser = JSON.parse(sessionStorage.getItem("User"));
+    currentUser = sessionStorage.getItem("User");
     return { currentUser, loading, error };
 };
 
